@@ -8,9 +8,6 @@ module.exports = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  ESLint: {
-    ignoreBuildErrors: true,
-  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
