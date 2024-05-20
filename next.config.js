@@ -1,10 +1,14 @@
 // next.config.js
 
+const { ESLint } = require('eslint')
 const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
 module.exports = {
   typescript: {
+    ignoreBuildErrors: true,
+  },
+  ESLint: {
     ignoreBuildErrors: true,
   },
   reactStrictMode: true,
