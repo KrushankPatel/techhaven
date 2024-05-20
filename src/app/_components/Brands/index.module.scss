@@ -1,0 +1,54 @@
+/* Brands.module.scss */
+
+.brands {
+  height: auto;
+  width: auto;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 90px;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  background-color: whitesmoke;
+  padding-top: 50px;
+  row-gap: 1rem; /* Since we're using flexbox, gap between rows is controlled by margin */
+}
+
+.item {
+  border-left: none;
+  border-right: none;
+  border-top: 0.6px solid #80808054;
+  border-bottom: 0.6px solid #80808054;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 220px; /* Width of each item */
+  margin: 0 1rem 1rem 0; /* Margin between items */
+}
+
+.item:hover {
+  transition: all 0.5s ease;
+  transform: scale(1.05);
+  background-color: whitesmoke;
+}
+
+.brand1 {
+  width: 100%; /* Make the first item full width */
+  border: none;
+}
+
+.brandsHead {
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #212529;
+  font-family: var(--font-family1);
+  padding-top: 3rem;
+}
+
+.item img {
+  width: 100%; /* Make the images fill the container */
+  height: auto;
+}

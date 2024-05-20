@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
@@ -23,12 +24,17 @@ const LoginForm: React.FC = () => {
   const redirect = useRef(searchParams.get('redirect'))
   const { login } = useAuth()
   const router = useRouter()
-  const [error, setError] = React.useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [showPassword, setShowPassword] = useState(false)
+
+  const togglePasswordVisibility = useCallback(() => {
+    setShowPassword(prevState => !prevState)
+  }, [])
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isLoading },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>()
 
   const onSubmit = useCallback(
@@ -36,7 +42,8 @@ const LoginForm: React.FC = () => {
       try {
         await login(data)
         if (redirect?.current) router.push(redirect.current as string)
-        else router.push('/account')
+        else router.push('/')
+        window.location.href = '/'
       } catch (_) {
         setError('There was an error with the credentials provided. Please try again.')
       }
@@ -46,11 +53,6 @@ const LoginForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <p>
-        {`This is where your customers will login to manage their account, review their order history, and more. To manage all users, `}
-        <Link href="/admin/collections/users">login to the admin dashboard</Link>
-        {'.'}
-      </p>
       <Message error={error} className={classes.message} />
       <Input
         name="email"
@@ -60,22 +62,27 @@ const LoginForm: React.FC = () => {
         error={errors.email}
         type="email"
       />
-      <Input
-        name="password"
-        type="password"
-        label="Password"
-        required
-        register={register}
-        error={errors.password}
-      />
+      <div className={`${classes.inputField} ${classes.passwordField}`}>
+        <Input
+          name="password"
+          label="Password"
+          type={showPassword ? 'text' : 'password'}
+          required
+          register={register}
+          error={errors.password}
+        />
+        <button type="button" className={classes.eyeButton} onClick={togglePasswordVisibility}>
+          {showPassword ? <FaEye /> : <FaEyeSlash />}
+        </button>
+      </div>
       <Button
         type="submit"
         appearance="primary"
-        label={isLoading ? 'Processing' : 'Login'}
-        disabled={isLoading}
+        label={isSubmitting ? 'Processing' : 'Login'}
+        disabled={isSubmitting}
         className={classes.submit}
       />
-      <div>
+      <div className={classes.links}>
         <Link href={`/create-account${allParams}`}>Create an account</Link>
         <br />
         <Link href={`/recover-password${allParams}`}>Recover your password</Link>

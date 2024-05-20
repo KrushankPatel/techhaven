@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -66,7 +65,7 @@ export const ResetPasswordForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <Message error={error} className={classes.message} />
+      <Message error={error} className={classes.errorMessage} />
       <Input
         name="password"
         type="password"

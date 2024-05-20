@@ -10,8 +10,8 @@ import classes from './index.module.scss'
 export default async function ResetPassword() {
   return (
     <Gutter className={classes.resetPassword}>
-      <h1>Reset Password</h1>
-      <p>Please enter a new password below.</p>
+      <h1 className={classes.mainHead}>Reset Password</h1>
+      <p className={classes.paraMain}>Please enter a new password below.</p>
       <ResetPasswordForm />
     </Gutter>
   )

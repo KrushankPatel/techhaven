@@ -1,0 +1,81 @@
+
+.Swiperslide {
+  text-align: center;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.imagediv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productCard img {
+  height: 200px;
+  width: 189px;
+}
+.productCard img:hover{
+  scale: 1.03;
+}
+.productInfo {
+  padding: 20px;
+}
+
+.productInfo h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  min-height: 122px;
+  color: #3c3e41;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.price {
+  color: green;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding-bottom: 7px;
+  padding-top: 5px;
+  font-size: 19px;
+}
+
+.discount {
+  background: #e4c41a;
+  width: fit-content;
+  padding: 0 12px;
+  color: ghostwhite;
+  border-radius: 7px;
+}
+.offprice {
+  background: #902222;
+  width: fit-content;
+  padding: 0 12px;
+  color: white;
+  border-radius: 7px;
+  text-decoration: line-through;
+}
+
+.innerdiv {
+  display: flex;
+  flex-direction: row;
+  gap: 27px;
+  letter-spacing: 1px;
+  padding-top: 11px;
+}

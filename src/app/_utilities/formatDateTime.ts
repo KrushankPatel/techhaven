@@ -4,9 +4,6 @@ export const formatDateTime = (timestamp: string): string => {
   if (timestamp) date = new Date(timestamp)
   const months = date.getMonth()
   const days = date.getDate()
-  // const hours = date.getHours();
-  // const minutes = date.getMinutes();
-  // const seconds = date.getSeconds();
 
   const MM = months + 1 < 10 ? `0${months + 1}` : months + 1
   const DD = days < 10 ? `0${days}` : days

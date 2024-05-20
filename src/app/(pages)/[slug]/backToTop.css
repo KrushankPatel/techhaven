@@ -1,0 +1,24 @@
+.back-to-top-div {
+    position: fixed;
+    right: 25px;
+    bottom: 6rem;
+    background-color: #ef4f5f;
+    border-radius: 122px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+  
+  .back-to-top-div i {
+    color: white;
+  }
+  
+  .back-to-top-div:hover {
+    background: rgb(224, 53, 70);
+  }
+  

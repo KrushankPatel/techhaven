@@ -97,7 +97,14 @@ export const createPaymentIntent: PayloadHandler = async (req, res): Promise<voi
       customer: stripeCustomerID,
       amount: total,
       currency: 'usd',
-      payment_method_types: ['card'],
+      payment_method_types: [
+        'card',
+        'us_bank_account',
+        'cashapp',
+        'link',
+        'afterpay_clearpay',
+        'wechat_pay',
+      ],
     })
 
     res.send({ client_secret: paymentIntent.client_secret })

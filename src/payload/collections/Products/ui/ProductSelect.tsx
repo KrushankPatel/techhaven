@@ -78,7 +78,7 @@ export const ProductSelect: React.FC<TextField> = props => {
       {Boolean(stripeProductID) && (
         <div
           style={{
-            marginTop: '-1rem',
+            marginTop: '1rem',
             marginBottom: '1.5rem',
           }}
         >

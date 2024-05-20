@@ -1,12 +1,19 @@
-/** @type {import('next').NextConfig} */
+// next.config.js
+
 const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost', process.env.NEXT_PUBLIC_SERVER_URL]
+    domains: [
+      'localhost',
+      process.env.NEXT_PUBLIC_SERVER_URL,
+      'i.ibb.co',
+      'static.wixstatic.com',
+      'rukminim1.flixcart.com',
+    ]
       .filter(Boolean)
       .map(url => url.replace(/https?:\/\//, '')),
   },
@@ -14,10 +21,6 @@ const nextConfig = {
   async headers() {
     const headers = []
 
-    // Prevent search engines from indexing the site if it is not live
-    // This is useful for staging environments before they are ready to go live
-    // To allow robots to crawl the site, use the `NEXT_PUBLIC_IS_LIVE` env variable
-    // You may want to also use this variable to conditionally render any tracking scripts
     if (!process.env.NEXT_PUBLIC_IS_LIVE) {
       headers.push({
         headers: [
@@ -38,7 +41,7 @@ const nextConfig = {
       headers: [
         {
           key: 'Content-Security-Policy',
-          value: ContentSecurityPolicy,
+          value: "img-src 'self' https://*.stripe.com https://raw.githubusercontent.com blob:;",
         },
       ],
     })
@@ -46,5 +49,3 @@ const nextConfig = {
     return headers
   },
 }
-
-module.exports = nextConfig

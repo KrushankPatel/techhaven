@@ -33,7 +33,7 @@ export const OrderConfirmationPage: React.FC<{}> = () => {
             <Button
               href={`${process.env.NEXT_PUBLIC_SERVER_URL}/orders`}
               label="View all orders"
-              appearance="secondary"
+              appearance="none"
             />
           </div>
         </Fragment>
@@ -44,9 +44,10 @@ export const OrderConfirmationPage: React.FC<{}> = () => {
             {`Your order has been confirmed. You will receive an email confirmation shortly. Your order ID is ${orderID}.`}
           </p>
           <div className={classes.actions}>
-            <Button href={`/orders/${orderID}`} label="View order" appearance="primary" />
+            <Button href={`/account/orders/${orderID}`} label="View order" appearance="primary" />
             <Button
-              href={`${process.env.NEXT_PUBLIC_SERVER_URL}/orders`}
+              className={classes.hover}
+              href={`${process.env.NEXT_PUBLIC_SERVER_URL}/account/orders`}
               label="View all orders"
               appearance="secondary"
             />

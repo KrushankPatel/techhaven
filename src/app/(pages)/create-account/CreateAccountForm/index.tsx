@@ -2,6 +2,7 @@
 
 import React, { useCallback, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
@@ -13,6 +14,7 @@ import { useAuth } from '../../../_providers/Auth'
 import classes from './index.module.scss'
 
 type FormData = {
+  name: string
   email: string
   password: string
   passwordConfirm: string
@@ -25,6 +27,8 @@ const CreateAccountForm: React.FC = () => {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   const {
     register,
@@ -35,6 +39,14 @@ const CreateAccountForm: React.FC = () => {
 
   const password = useRef({})
   password.current = watch('password', '')
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword)
+  }
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword)
+  }
 
   const onSubmit = useCallback(
     async (data: FormData) => {
@@ -62,7 +74,8 @@ const CreateAccountForm: React.FC = () => {
         await login(data)
         clearTimeout(timer)
         if (redirect) router.push(redirect as string)
-        else router.push(`/account?success=${encodeURIComponent('Account created successfully')}`)
+        else router.push(`/`)
+        window.location.href = '/'
       } catch (_) {
         clearTimeout(timer)
         setError('There was an error with the credentials provided. Please try again.')
@@ -73,11 +86,6 @@ const CreateAccountForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <p>
-        {`This is where new customers can signup and create a new account. To manage all users, `}
-        <Link href="/admin/collections/users">login to the admin dashboard</Link>
-        {'.'}
-      </p>
       <Message error={error} className={classes.message} />
       <Input
         name="email"
@@ -88,32 +96,60 @@ const CreateAccountForm: React.FC = () => {
         type="email"
       />
       <Input
-        name="password"
-        type="password"
-        label="Password"
+        name="name"
+        label="Full name"
         required
         register={register}
-        error={errors.password}
+        validate={value =>
+          (value.length >= 5 && value.length <= 50) ||
+          'Name should be between 5 and 50 characters long'
+        }
+        error={errors.name}
+        type="text"
       />
-      <Input
-        name="passwordConfirm"
-        type="password"
-        label="Confirm Password"
-        required
-        register={register}
-        validate={value => value === password.current || 'The passwords do not match'}
-        error={errors.passwordConfirm}
-      />
+      <div className={classes.passwordInput}>
+        <Input
+          name="password"
+          type={showPassword ? 'text' : 'password'}
+          label="Password"
+          required
+          register={register}
+          validate={value =>
+            /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/.test(value) ||
+            'Password must contain at least one number, one lowercase and one uppercase letter, one special character, and be 8-16 characters long.'
+          }
+          error={errors.password}
+        />
+        <span className={classes.eyeIcon} onClick={togglePasswordVisibility}>
+          {showPassword ? <FaEye /> : <FaEyeSlash />}
+        </span>
+      </div>
+      <div className={classes.passwordInput}>
+        <Input
+          name="passwordConfirm"
+          type={showConfirmPassword ? 'text' : 'password'}
+          label="Confirm Password"
+          required
+          register={register}
+          validate={value => value === password.current || 'The passwords do not match'}
+          error={errors.passwordConfirm}
+        />
+        <span className={classes.eyeIcon} onClick={toggleConfirmPasswordVisibility}>
+          {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
+        </span>
+      </div>
       <Button
         type="submit"
-        label={loading ? 'Processing' : 'Create Account'}
+        label={loading ? 'Processing' : 'Sign up'}
         disabled={loading}
         appearance="primary"
         className={classes.submit}
       />
       <div>
         {'Already have an account? '}
-        <Link href={`/login${allParams}`}>Login</Link>
+        <Link href={`/login${allParams}`} className={classes.logLink}>
+          Login
+        </Link>
       </div>
     </form>
   )

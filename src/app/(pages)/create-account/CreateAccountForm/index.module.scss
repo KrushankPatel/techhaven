@@ -1,22 +1,45 @@
-@import "../../../_css/common";
+@import '../../../_css/common';
 
 .form {
   margin-bottom: var(--base);
   display: flex;
   flex-direction: column;
-  gap: calc(var(--base) / 2);
+  gap: 24px;
   align-items: flex-start;
-  width: 66.66%;
-
-  @include mid-break {
-    width: 100%;
-  }
+  width: 100%;
+  margin-top: 30px;
 }
 
 .submit {
-  margin-top: calc(var(--base) / 2);
+  width: 100%;
 }
 
 .message {
   margin-bottom: var(--base);
+}
+
+.passwordInput {
+  position: relative;
+  width: 100%;
+}
+
+.passwordInput input {
+  width: 100%;
+}
+
+.eyeIcon {
+  position: absolute;
+  top: 0;
+  right: 0; /* Adjust the distance of the eye icon from the right side */
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1rem;
+  padding-top: 21px;
+  padding-right: 9px;
+}
+
+.logLink {
+  padding-left: 4px;
+  color: brown;
+  text-decoration: underline;
 }
