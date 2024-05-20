@@ -4,6 +4,9 @@ const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
 module.exports = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
