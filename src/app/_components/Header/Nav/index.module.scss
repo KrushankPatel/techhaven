@@ -18,3 +18,12 @@
   opacity: 0;
   visibility: hidden;
 }
+
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 429.98px) {
+  .btn{
+    margin-top: 1rem;
+  }
+}
+
