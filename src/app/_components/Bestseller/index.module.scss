@@ -33,7 +33,7 @@
 }
 
 .productInfo h3 {
-  font-size: 18px;
+  font-size: 19px;
   margin-bottom: 10px;
   text-overflow: ellipsis !important;
   overflow: hidden;
@@ -44,7 +44,8 @@
   min-height: 122px;
   color: #3c3e41;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
+  letter-spacing: .9px;
 }
 
 .price {
