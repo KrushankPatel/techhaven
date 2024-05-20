@@ -42,8 +42,8 @@ const HeaderComponent = ({ header }: { header: Header }) => {
 
     // Filter products based on the search term
     const filtered = products.filter(product =>
-      product.name.toLowerCase().includes(value.toLowerCase()),
-    )
+      // eslint-disable-next-line prettier/prettier
+      product.name.toLowerCase().includes(value.toLowerCase()),)
     setFilteredProducts(filtered)
     setShowProductList(true)
   }
