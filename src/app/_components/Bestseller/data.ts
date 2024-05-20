@@ -7,7 +7,7 @@ export const shopItemsData = [
     image: 'https://i.ibb.co/MNbCZfh/apple-ipad-air-256gb-purple.png',
     offprice: '($858.00)',
     discount: '10% off',
-    link: 'http://localhost:3000/products/apple-ipad-air-5th-gen-256-gb-rom-109-inch-with-wi-fi-only-purple',
+    link: 'https://techhaven-5a7f666.payloadcms.app/products/apple-ipad-air-5th-gen-256-gb-rom-109-inch-with-wi-fi-only-purple',
   },
 
   {
@@ -17,7 +17,7 @@ export const shopItemsData = [
     image: 'https://i.ibb.co/4ZZM6rm/apple-watch-series-9-aluminum.png',
     offprice: '($360.00)',
     discount: '20% off',
-    link: 'http://localhost:3000/products/apple-watch-series-9-solo-loop-aluminum---mindnight',
+    link: 'https://techhaven-5a7f666.payloadcms.app/products/apple-watch-series-9-solo-loop-aluminum---mindnight',
   },
 
   {
@@ -27,7 +27,7 @@ export const shopItemsData = [
     image: 'https://i.ibb.co/LC4N90r/apple-iphone-15-pro-1tb-blue-titanium.png',
     offprice: '($990.00)',
     discount: '10% off',
-    link: 'http://localhost:3000/products/apple-iphone-15-pro-1tb---blue-titanium',
+    link: 'https://techhaven-5a7f666.payloadcms.app/products/apple-iphone-15-pro-1tb---blue-titanium',
   },
 
   {
@@ -37,7 +37,7 @@ export const shopItemsData = [
     image: 'https://i.ibb.co/f0YHS5N/apple-tv-4k-wifi.png" alt="apple-tv-4k-wifi',
     offprice: '($108.00)',
     discount: '20% off',
-    link: 'http://localhost:3000/products/apple-tv-4k-wifi--ethernet-with-128gb-storage',
+    link: 'https://techhaven-5a7f666.payloadcms.app/products/apple-tv-4k-wifi--ethernet-with-128gb-storage',
   },
 
   {
@@ -47,7 +47,7 @@ export const shopItemsData = [
     image: 'https://i.ibb.co/L5JGZWW/airpods-pro-2nd-generation.png',
     offprice: '($200.00)',
     discount: '20.5% off',
-    link: 'http://localhost:3000/products/apple-airpods-pro-2nd-generation-with-magsafe-case-usb-c-bluetooth-headset-white-true-wireless',
+    link: 'https://techhaven-5a7f666.payloadcms.app/products/apple-airpods-pro-2nd-generation-with-magsafe-case-usb-c-bluetooth-headset-white-true-wireless',
   },
 
   {
@@ -57,7 +57,7 @@ export const shopItemsData = [
     image: 'https://i.ibb.co/wLd2Fvx/apple-iphone-14-128gb-blue.png',
     offprice: '($979.00)',
     discount: '10% off',
-    link: 'http://localhost:3000/products/apple-iphone-14-blue-128-gb',
+    link: 'https://techhaven-5a7f666.payloadcms.app/products/apple-iphone-14-blue-128-gb',
   },
 
   {
@@ -67,6 +67,6 @@ export const shopItemsData = [
     image: 'https://i.ibb.co/THk4Y0f/apple-watch-ultra-2.png',
     offprice: '($495.00)',
     discount: '10% off',
-    link: 'http://localhost:3000/products/apple-watch-ultra-2-gps--cellular-49mm-smartwatch',
+    link: 'https://techhaven-5a7f666.payloadcms.app/products/apple-watch-ultra-2-gps--cellular-49mm-smartwatch',
   },
 ]
